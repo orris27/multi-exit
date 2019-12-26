@@ -2,7 +2,7 @@ https://www.intel.ai/fast-inference-with-early-exit/#gs.oc5n5e
 
  a confidence measure will determine if a prediction made at a certain stage can exit early from the entire deep learning topology, thus saving unnecessary processing in the subsequent layers.
  
- 
++ Leverage the variance of difficulty among real-world data and thus uses only part of the network to handle recognition tasks: Conditional Deep Learning for Energy-Efficient and Enhanced Pattern Recognition
 + Multi-Scale Dense Network (MSDNet) 
 + selectively inserting exits between specific layers. Checks for an ability to exit were done after some amount of extra processing on the exit branches themselves: BranchyNet: Fast Inference via Early Exiting from Deep Neural Networks.
 + perform dynamic routing of the data and thus skip certain layers of processing along the way: SkipNet: Learning Dynamic Routing in Convolutional Networks
