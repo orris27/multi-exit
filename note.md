@@ -64,6 +64,19 @@ Do we forward from the first layer again for the future exiting points? I think 
 
 
 
+### SkipNet
+Modify ResNet
 
-
+Gating Network:
++ Add to each residual network: takes the outputs of the previous layer as inputs, and outputs 0/1 to determine whether to skip the block (1: no-skip; 0: skip)
++ non-differentiable
+    - ~~gradient descent~~
+    - softmax softer? make it differentiable
+    - fidelity + penalty (=reward)
+    
+Loss Function:
+$$
+L_{\theta}(g, X) = L(\hat{y}(X, F_{\theta}, g), y) - \frac{\alpha}{N} \sum_{i=1}^N{(1 - g_i ) C_i},
+$$
+where $g_i$ is the $i$th decision (0/1), $N$ is the number of decisions, $C_i$ is hyperparamter to measure the importance of $F_{\theta}^i$ (the authors select $C_i$ as 1), $\alpha$ is another hyperparameter, $F_{\theta}^i$ is the set of network parameters for $i$th layer including gating network, $F_{\theta} = [F_{\theta}^1, F_{\theta}^2, \cdots, F_{\theta}^N]$
 
