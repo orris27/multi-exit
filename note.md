@@ -25,3 +25,36 @@ CrossEntropy
 
 
 
+### BranchyNet
+
+additional side branch classifiers
+
++ For many simple test examples can exit the network early via these branches when they are infered with high confidence.
++ For difficult examples, deeper networks are still utilized.
+
+
+Jointly Optimization: 
++ optimizes the weighted loss of all exit points
++ each exit point provides regularization on others?
++ The final loss function (N is the total number of exiting point): 
+```
+$L_{branchynet}(\hat{\mathbf{y}}, \mathbf{y}; \theta) = \sum_{n=1}^N { w_n L(\hat{\mathbf{y}}_{exit_n}, \mathbf{y}; \theta)  }$
+```
+
+
+
+How do we choose weight `$w_n$` for each exit point?
+
+How do we messure the confidence of an exiting point?
++ Compute the entropy value at the exiting point: `$\text{entropy}(\mathbf{y}) = \sum_{c\in C}{ y_c \log {y_c} }$`, where `$C$` is the set of classes.
++ `y_c` is obtained by forward pass on the sub-networks
+
+How do we determine the exiting threshold `T_n` for exiting point?
+
+Do we forward from the first layer again for the future exiting points? I think there is more computation loss.
+
+
+
+
+
+
