@@ -42,14 +42,23 @@ $L_{branchynet}(\hat{\mathbf{y}}, \mathbf{y}; \theta) = \sum_{n=1}^N { w_n L(\ha
 ```
 
 
+Structures of Branches:
++ The computation cost of branch should be less than that of exiting at a later exit point
++ Earlier branch has more layers, and later branch has fewer layers.
+
 
 How do we choose weight `$w_n$` for each exit point?
++ higher weights at early exiting point
 
 How do we messure the confidence of an exiting point?
 + Compute the entropy value at the exiting point: `$\text{entropy}(\mathbf{y}) = \sum_{c\in C}{ y_c \log {y_c} }$`, where `$C$` is the set of classes.
 + `y_c` is obtained by forward pass on the sub-networks
 
 How do we determine the exiting threshold `T_n` for exiting point?
++ determined by application, i.e., as long as the accuracy and speed meets the requirements.
+
+How do we choose the exiting location?
++ Depends on the difficulty of the task (dataset, etc.)
 
 Do we forward from the first layer again for the future exiting points? I think there is more computation loss.
 
